@@ -1,0 +1,64 @@
+html, body {
+  background-color: black;
+  height: 100%;
+}
+
+#navbarNavDropdown {
+  position: relative;
+  right: 4%;
+}
+
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+.nav-item {
+  margin: 5px;
+  background-color: black;
+}
+
+.card {
+  color: white;
+  background-color: #343a40;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.thumbnail, .card-content, .card-buttons {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.card-content {
+  width: 50%;
+  min-width: 200px;
+}
+
+.thumbnail {
+  height: 200px;
+  width: 200px;
+  border-radius: 25px;
+}
+
+h4 {
+  text-align: center;
+}
+
+hr {
+  border-color: white;
+}
+
+.btn {
+  margin: 10px auto;
+}
