@@ -8,6 +8,13 @@ html, body {
   right: 4%;
 }
 
+.pageTitle {
+  text-align: center;
+  width: 100%;
+  z-index: 6;
+  padding: 10px 0;
+}
+
 .dropdown-menu {
   background-color: black;
 }
@@ -18,11 +25,16 @@ html, body {
 
 .navbar-nav {
   justify-content: center;
+  text-align: center;
 }
 
 .nav-item {
+  margin: 0 auto;
+  text-align: center;
   margin: 5px;
   background-color: black;
+  border-radius: 10px;
+  max-width: 216px;
 }
 
 .card {

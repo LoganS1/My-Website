@@ -1,0 +1,23 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "The website for Logan Sinclair",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoganS1/My-Website.git"
+  },
+  "author": "Logan Sinclair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoganS1/My-Website/issues"
+  },
+  "homepage": "https://github.com/LoganS1/My-Website#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
