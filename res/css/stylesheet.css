@@ -1,11 +1,19 @@
 html, body {
-  background-color: black;
   height: 100%;
+}
+
+body {
+  background: url("http://localhost:8080/images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 #navbarNavDropdown {
   position: relative;
   right: 4%;
+}
+
+.center > p{
+  margin: auto;
 }
 
 .pageTitle {
