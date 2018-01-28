@@ -12,6 +12,14 @@ body {
   right: 4%;
 }
 
+a {
+  color: lightgreen;
+}
+
+a:hover {
+  color: green;
+}
+
 .center > p{
   margin: auto;
 }
