@@ -7,9 +7,11 @@ body, html {
 
 canvas {
   display: block;
-  height: 400px;
-  width: 400px;
+  height: 50%;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
+  image-rendering: crisp-edges;
   margin: 0 auto;
 }
 
@@ -17,4 +19,5 @@ p, input {
   text-align: center;
   display: block;
   margin: 0 auto;
+  font-size: 1.5em;
 }

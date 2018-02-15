@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  font-size: 1.1em;
 }
 
 body {
@@ -24,7 +25,7 @@ a:hover {
   margin: auto;
 }
 
-.pageTitle {
+.center {
   text-align: center;
   width: 100%;
   z-index: 6;
@@ -54,6 +55,7 @@ a:hover {
 }
 
 .card {
+  padding: 10px;
   color: white;
   background-color: #343a40;
   margin: 10px auto;
@@ -89,4 +91,18 @@ hr {
 
 .btn {
   margin: 10px auto;
+}
+
+.subLI {
+  color: darkgrey;
+}
+
+.alignLists {
+  text-align: center;
+}
+
+ul {
+  display: inline-block;
+  margin: auto;
+  text-align: left;
 }
