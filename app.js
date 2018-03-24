@@ -6,14 +6,6 @@ app.use(express.static('res'));
 app.set("view engine", "ejs");
 app.disable('x-powered-by');
 
-app.get("/about", (req, res)=>{
-  res.render("pages/about");
-})
-
-app.get("/projects", (req, res)=>{
-  res.render("pages/projects");
-})
-
 app.get("/", (req, res)=>{
 	res.render("pages/home");
 })
