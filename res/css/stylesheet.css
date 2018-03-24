@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  background: url("/images/background.jpg") no-repeat center center fixed;
+  background: url("/images/background.jpg") repeat-y center center fixed;
   background-size: cover;
 }
 
@@ -86,23 +86,9 @@ h4 {
 }
 
 hr {
-  border-color: white;
+  border: 1px solid white;
 }
 
 .btn {
   margin: 10px auto;
-}
-
-.subLI {
-  color: darkgrey;
-}
-
-.alignLists {
-  text-align: center;
-}
-
-ul {
-  display: inline-block;
-  margin: auto;
-  text-align: left;
 }
