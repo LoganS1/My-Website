@@ -1,10 +1,12 @@
-var express = require("express"),
-	app 	= express(),
-	https	= require("https"),
-	ejs     = require("ejs"),
-	crypto	= require("crypto");
+var express 	= require("express"),
+	app 		= express(),
+	https		= require("https"),
+	bodyParser	= require("body-parser");
+	ejs     	= require("ejs"),
+	crypto		= require("crypto");
 	  
 app.use(express.static('res'));
+app.use(bodyParser.json())
 app.set("view engine", "ejs");
 app.disable('x-powered-by');
 
@@ -24,10 +26,12 @@ app.get("/projects*", (req, res)=>{
 
 app.post("/update", (req, res)=>{
 	console.log(req.url);
-	let key = process.env.GithubSecretKey;
-	let mySignature = crypto.createHmac("sha1", key).update(JSON.stringify(webhookBody)).digest("hex");
-	let githubSignature = req.headers["x-hub-signature"];
-	if(mySignature === githubSignature){
+	const key = process.env.GithubSecretKey.toString();
+	const payload = JSON.stringify(req.body);
+	console.log(req.body);
+	const mySignature = "sha1=" + crypto.createHmac("sha1", key).update(payload).digest("hex");
+	const githubSignature = req.headers["x-hub-signature"];
+	if(crypto.timingSafeEqual(Buffer.from(githubSignature), Buffer.from(mySignature))){
 		console.log("Authenticated Github Webhook... Updating Server & Projects");
 		res.status(202).send("Pulling updates from Github for Website & Projects!");
 		require('child_process').exec(update.sh);
