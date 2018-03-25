@@ -10,8 +10,17 @@ app.get("/", (req, res)=>{
 	res.render("pages/home");
 })
 
+app.get("/projects*", (req, res)=>{
+	res.sendFile(__dirname + req.url, (err)=>{
+		if(err){
+			res.render("pages/404");
+		}
+	});
+})
+
 app.get("/*", (req, res)=>{
-  res.render("pages/404");
+	res.render("pages/404");
+	console.log(req.url);
 })
 
 app.listen(8080, function(){
