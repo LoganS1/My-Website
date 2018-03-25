@@ -3,7 +3,8 @@ var express 	= require("express"),
 	https		= require("https"),
 	bodyParser	= require("body-parser");
 	ejs     	= require("ejs"),
-	crypto		= require("crypto");
+	crypto		= require("crypto"),
+	dotenv		= require("dotenv").config();
 	  
 app.use(express.static('res'));
 app.use(bodyParser.json())
@@ -26,15 +27,21 @@ app.get("/projects*", (req, res)=>{
 
 app.post("/update", (req, res)=>{
 	console.log(req.url);
-	const key = process.env.GithubSecretKey.toString();
+	const key = process.env.GithubSecretKey;
 	const payload = JSON.stringify(req.body);
-	console.log(req.body);
 	const mySignature = "sha1=" + crypto.createHmac("sha1", key).update(payload).digest("hex");
 	const githubSignature = req.headers["x-hub-signature"];
 	if(crypto.timingSafeEqual(Buffer.from(githubSignature), Buffer.from(mySignature))){
 		console.log("Authenticated Github Webhook... Updating Server & Projects");
 		res.status(202).send("Pulling updates from Github for Website & Projects!");
-		require('child_process').exec(update.sh);
+		const run = require("child_process").exec;
+		run("sh update.sh", (err, stdout, stderr)=>{
+			console.log(stdout);
+			console.log(stderr);
+			if(err != null){
+				console.log("Update script run error: " + err);
+			}
+		})
 	}else{
 		console.log("Invalid attempt to update server! + Signature given: " + githubSignature);
 		res.status(401).send("Invalid Signature!");

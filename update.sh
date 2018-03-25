@@ -10,3 +10,5 @@ git pull origin master
 cd ../../
 #update main website
 git pull origin master
+#restart server
+pm2 restart app
