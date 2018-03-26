@@ -1,6 +1,7 @@
 var express 	= require("express"),
 	app 		= express(),
 	https		= require("https"),
+	fs			= require("fs");
 	bodyParser	= require("body-parser");
 	ejs     	= require("ejs"),
 	crypto		= require("crypto"),
@@ -23,6 +24,24 @@ app.get("/projects*", (req, res)=>{
 			res.status(404).render("pages/404");
 		}
 	});
+})
+
+let views = 1;
+app.get("/viewCounter*", (req, res)=>{
+	//If file exists get views from file
+	if(fs.existsSync("viewCount.txt")){
+		views = fs.readFileSync("viewCount.txt", "utf8");
+	}
+	views++;
+	//Write the new value to the file
+	fs.writeFile("viewCount.txt", views, (err)=>{
+		if(err){
+			console.log(err);
+		}
+	})
+	//Send the view count in JSON
+	res.setHeader("Content-Type", "application/text");
+	res.status(200).send(views.toString());
 })
 
 app.post("/update", (req, res)=>{

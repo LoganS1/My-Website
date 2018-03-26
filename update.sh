@@ -1,3 +1,5 @@
+#stop server
+pm2 stop app
 #Go into Snake-Game directory and update
 cd projects/Snake-Game
 git pull origin master
@@ -10,5 +12,7 @@ git pull origin master
 cd ../../
 #update main website
 git pull origin master
+#pull (possible) new packages
+npm install
 #restart server
-pm2 restart app
+pm2 start app
