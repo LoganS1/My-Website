@@ -1,5 +1,5 @@
 #Go into Snake-Game directory and update
-cd projects/Snake-Game
+cd res/projects/Snake-Game
 git pull origin master
 #Back out of directory
 cd ../
@@ -7,7 +7,7 @@ cd ../
 cd Langstons-Ant
 git pull origin master
 #back into main directory
-cd ../../
+cd ../../../
 #update main website
 git pull origin master
 #pull (possible) new packages
