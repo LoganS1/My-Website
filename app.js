@@ -8,13 +8,27 @@ var express 	= require("express"),
 	dotenv		= require("dotenv").config();
 	  
 app.use(express.static('res'));
+app.use(bodyParser.urlencoded({
+	extended: true
+}))
 app.use(bodyParser.json())
 app.set("view engine", "ejs");
 app.disable('x-powered-by');
 
 app.get("/", (req, res)=>{
-	console.log(req.url);
+	log(req.url)
 	res.render("pages/home");
+})
+
+app.get("/contact", (req, res)=>{
+	log(req.url)
+	res.render("pages/contact");
+})
+
+app.post("/contact", (req, res)=>{
+	console.log("Contact Form Recieved!");
+	console.log(req.body);
+	res.redirect("/");
 })
 
 let views = 1;
@@ -36,7 +50,7 @@ app.get("/viewCounter*", (req, res)=>{
 })
 
 app.post("/update", (req, res)=>{
-	console.log(req.url);
+	log(req.url)
 	const key = process.env.GithubSecretKey;
 	if(req.body != undefined && req.headers['user-agent'].includes('GitHub-Hookshot')){
 		const payload = JSON.stringify(req.body);
@@ -65,10 +79,17 @@ app.post("/update", (req, res)=>{
 })
 
 app.get("/*", (req, res)=>{
-	console.log(req.url);
+	log(req.url)
 	res.status(404).render("pages/404");
 })
 
 app.listen(8080, function(){
 	console.log("Server is running on port 8080");
 });
+
+function log(msg){
+	let date = new Date();
+	let datestamp = (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear();
+	let timestamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	console.log(datestamp + " " + timestamp + " >> " + msg);
+}

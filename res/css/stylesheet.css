@@ -32,6 +32,12 @@ a:hover {
   padding: 10px 0;
 }
 
+.form-control {
+  width: 80%;
+  margin: 0 auto;
+  float: right;
+}
+
 .dropdown-menu {
   background-color: black;
 }
