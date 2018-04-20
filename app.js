@@ -20,16 +20,16 @@ app.get("/", (req, res)=>{
 	res.render("pages/home");
 })
 
-app.get("/contact", (req, res)=>{
-	log(req.url)
-	res.render("pages/contact");
-})
+// app.get("/contact", (req, res)=>{
+// 	log(req.url)
+// 	res.render("pages/contact");
+// })
 
-app.post("/contact", (req, res)=>{
-	console.log("Contact Form Recieved!");
-	console.log(req.body);
-	res.redirect("/");
-})
+// app.post("/contact", (req, res)=>{
+// 	console.log("Contact Form Recieved!");
+// 	console.log(req.body);
+// 	res.redirect("/");
+// })
 
 let views = 1;
 app.get("/viewCounter*", (req, res)=>{
